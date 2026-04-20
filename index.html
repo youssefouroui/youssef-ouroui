@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youssef Ouroui</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <a href="#" class="logo">Youssef<span>.</span></a>
+  <nav class="nav">
+    <a href="#about">About</a>
+    <a href="#project">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="hamburger" onclick="toggleMenu()">
+    <i class="fa fa-bars"></i>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#project" onclick="toggleMenu()">Projects</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="main">
+  <div class="hero-content">
+    <div class="intro" data-aos>
+      <p class="tag">👋 Available for opportunities</p>
+      <h1>Hello, I'm<br /><span>Youssef Ouroui</span></h1>
+      <h2>Software Engineering Student</h2>
+      <p>I build modern websites and smart solutions using Python &amp; Web technologies.</p>
+
+      <div class="hero-btns">
+        <a href="#project" class="btn">View Projects <i class="fa fa-arrow-right"></i></a>
+        <a href="#contact" class="btn-outline">Contact Me</a>
+      </div>
+
+      <div class="social">
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/youssefouroui" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+
+    <!-- Animated avatar card -->
+    <div class="hero-card" data-aos>
+      <div class="avatar-ring">
+        <div class="avatar-inner">
+          <i class="fa fa-code"></i>
+        </div>
+      </div>
+      <div class="floating-badge badge-1"><i class="fa-brands fa-python"></i> Python</div>
+      <div class="floating-badge badge-2"><i class="fa-brands fa-java"></i> Java</div>
+      <div class="floating-badge badge-3"><i class="fa-brands fa-js"></i> JavaScript</div>
+      <div class="floating-badge badge-4"><i class="fa-brands fa-linux"></i> Linux</div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-dot"></div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="section-label">
+    <span>01</span> About Me
+  </div>
+  <div class="about-container">
+    <div class="about-text" data-aos>
+      <h2>Computer Science Student<br />&amp; Developer</h2>
+      <p>
+        I am a passionate computer science student from Morocco, focused on building
+        practical and efficient software solutions. I work with technologies like
+        Java, Python, and web development tools.
+      </p>
+      <p>
+        I enjoy creating projects such as student management systems, login pages,
+        and quiz applications. My goal is to become a full-stack developer and
+        continuously improve my technical skills.
+      </p>
+      <div class="buttons">
+        <a href="pdf/CV_Youssef_Ouroui.pdf" class="btn">Download CV <i class="fa fa-download"></i></a>
+        <a href="#contact" class="btn-outline">Contact Me</a>
+      </div>
+    </div>
+
+    <div class="skills-grid" data-aos>
+      <div class="skill-item"><i class="fa-brands fa-java"></i><span>Java</span></div>
+      <div class="skill-item"><i class="fa-brands fa-python"></i><span>Python</span></div>
+      <div class="skill-item"><i class="fa-solid fa-c"></i><span>C</span></div>
+      <div class="skill-item"><i class="fa-brands fa-html5"></i><span>HTML</span></div>
+      <div class="skill-item"><i class="fa-brands fa-css3-alt"></i><span>CSS</span></div>
+      <div class="skill-item"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+      <div class="skill-item"><i class="fa-solid fa-database"></i><span>SQL</span></div>
+      <div class="skill-item"><i class="fa-brands fa-linux"></i><span>Linux</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="project">
+  <div class="section-label">
+    <span>02</span> Projects
+  </div>
+  <div class="projects-header">
+    <h2>My GitHub Projects</h2>
+    <p>Fetched live from <a href="https://github.com/youssefouroui" target="_blank">@youssefouroui</a></p>
+  </div>
+
+  <!-- Filter Buttons -->
+  <div class="filter-btns">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="python">Python</button>
+    <button class="filter-btn" data-filter="java">Java</button>
+    <button class="filter-btn" data-filter="javascript">JavaScript</button>
+    <button class="filter-btn" data-filter="other">Other</button>
+  </div>
+
+  <!-- Loading State -->
+  <div class="projects-loading" id="projectsLoading">
+    <div class="spinner"></div>
+    <p>Loading projects from GitHub...</p>
+  </div>
+
+  <!-- Error State -->
+  <div class="projects-error" id="projectsError" style="display:none;">
+    <i class="fa fa-exclamation-circle"></i>
+    <p>Could not load projects. <a href="https://github.com/youssefouroui" target="_blank">View on GitHub →</a></p>
+  </div>
+
+  <!-- Projects Grid -->
+  <div class="projects-grid" id="projectsGrid"></div>
+
+  <div class="view-all">
+    <a href="https://github.com/youssefouroui" target="_blank" class="btn-outline">
+      View All on GitHub <i class="fa-brands fa-github"></i>
+    </a>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="section-label">
+    <span>03</span> Contact
+  </div>
+  <div class="contact-container">
+    <div class="contact-text" data-aos>
+      <h2>Let's Work Together</h2>
+      <p>I'm open to internship opportunities, collaborations, and interesting projects. Feel free to reach out!</p>
+      <div class="contact-links">
+        <a href="mailto:ourouiyoussef533@gmail.com" class="contact-link">
+          <i class="fa fa-envelope"></i>ourouiyoussef533@gmail.com
+        </a>
+        <a href="https://github.com/youssefouroui" target="_blank" class="contact-link">
+          <i class="fa-brands fa-github"></i> github.com/youssefouroui
+        </a>
+        <a href="https://www.linkedin.com/in/ouroui-youssef-3b1192282/" target="_blank" class="contact-link">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn Profile
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>Designed &amp; Built by <span>Youssef Ouroui</span> · 2026</p>
+  <div class="footer-social">
+    <a href="https://github.com/youssefouroui" target="_blank"><i class="fa-brands fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/ouroui-youssef-3b1192282/ target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+  </div>
+</footer>
+
+<script>
+// ===== GITHUB PROJECTS FETCH =====
+const GITHUB_USERNAME = 'youssefouroui';
+
+async function fetchProjects() {
+  const grid = document.getElementById('projectsGrid');
+  const loading = document.getElementById('projectsLoading');
+  const error = document.getElementById('projectsError');
+
+  try {
+    const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=30`);
+    if (!res.ok) throw new Error('Failed');
+    const repos = await res.json();
+    loading.style.display = 'none';
+    renderProjects(repos);
+  } catch (err) {
+    loading.style.display = 'none';
+    error.style.display = 'flex';
+  }
+}
+
+function getLangColor(lang) {
+  const colors = {
+    'Python': '#3776ab', 'JavaScript': '#f7df1e', 'Java': '#b07219',
+    'HTML': '#e34c26', 'CSS': '#563d7c', 'C': '#555555',
+    'C++': '#f34b7d', 'TypeScript': '#3178c6', 'Shell': '#89e051',
+  };
+  return colors[lang] || '#8892b0';
+}
+
+function renderProjects(repos) {
+  const grid = document.getElementById('projectsGrid');
+  if (!repos || !repos.length) {
+    grid.innerHTML = '<p class="no-projects">No public repositories found.</p>';
+    return;
+  }
+
+  grid.innerHTML = repos.map((repo, i) => `
+    <div class="project-card" data-lang="${(repo.language || 'other').toLowerCase()}" style="animation-delay:${i * 0.07}s">
+      <div class="project-card-top">
+        <div class="project-icon"><i class="fa-brands fa-github"></i></div>
+        <div class="project-stars"><i class="fa fa-star"></i> ${repo.stargazers_count}</div>
+      </div>
+      <h3>${repo.name.replace(/-/g, ' ')}</h3>
+      <p>${repo.description || 'No description provided.'}</p>
+      <div class="project-meta">
+        ${repo.language ? `<span class="lang-dot" style="background:${getLangColor(repo.language)}"></span><span class="lang-name">${repo.language}</span>` : ''}
+      </div>
+      <div class="project-links">
+        <a href="${repo.html_url}" target="_blank"><i class="fa-brands fa-github"></i> Code</a>
+        ${repo.homepage ? `<a href="${repo.homepage}" target="_blank"><i class="fa fa-external-link-alt"></i> Live</a>` : ''}
+      </div>
+    </div>
+  `).join('');
+
+  setTimeout(() => {
+    grid.querySelectorAll('.project-card').forEach(c => c.classList.add('visible'));
+  }, 50);
+
+  setupFilters();
+}
+
+function setupFilters() {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.project-card').forEach(card => {
+        const lang = card.dataset.lang;
+        const known = ['python','java','javascript'];
+        if (filter === 'all') card.style.display = 'flex';
+        else if (filter === 'other') card.style.display = (!lang || !known.includes(lang)) ? 'flex' : 'none';
+        else card.style.display = (lang === filter) ? 'flex' : 'none';
+      });
+    });
+  });
+}
+
+// ===== SCROLL ANIMATIONS =====
+function initScrollAnimations() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('aos-visible');
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el));
+}
+
+// ===== MOBILE MENU =====
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// ===== HEADER SCROLL =====
+window.addEventListener('scroll', () => {
+  document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// ===== INIT =====
+document.addEventListener('DOMContentLoaded', () => {
+  fetchProjects();
+  initScrollAnimations();
+});
+</script>
+
+</body>
+</html>
